@@ -21,6 +21,6 @@ CREATE TABLE customers (
 CREATE TABLE sales (
     id SERIAL4 PRIMARY KEY,
     instrument_id INT4 REFERENCES instruments(id) ON DELETE CASCADE,
-    customers_id INT4 REFERENCES customers(id) ON DELETE CASCADE
+    customer_id INT4 REFERENCES customers(id) ON DELETE CASCADE
 );
 

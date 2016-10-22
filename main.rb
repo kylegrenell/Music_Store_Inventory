@@ -1,0 +1,5 @@
+require ('sinatra')
+require ('sinatra/contrib/all')
+require_relative ('controllers/customer_controller')
+require_relative ('controllers/instrument_controller')
+require_relative ('controllers/sales_controller')
