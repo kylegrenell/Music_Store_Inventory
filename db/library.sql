@@ -4,7 +4,6 @@ DROP TABLE IF EXISTS customers;
 
 CREATE TABLE instruments (
     id SERIAL4 PRIMARY KEY,
-    name VARCHAR(255),
     type VARCHAR(255),
     brand VARCHAR(255),
     cost INT4,
