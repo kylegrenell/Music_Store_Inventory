@@ -4,12 +4,12 @@ require_relative('../models/sale')
 # INDEX
 get '/sales' do
   @sale = Sale.all
-  erb(:'sale/index')
+  erb(:'/sale/index')
 end
 
 # NEW
 get '/instruments/new' do
-  erb(:'sale/new')
+  erb(:'/sale/new')
 erb
 end
 
@@ -22,14 +22,14 @@ post '/sales' do
 # SHOW
 get '/sales/:id' do
   @sale = Sale.find(params['id'])
-  erb(:'sale/show')
+  erb(:'/sale/show')
 end
 
 # EDIT
 get '/sales/:id/edit' do
   @sale = Sale.find(params[:id])
   @sales = Sale.all()
-  erb(:'sale/edit')
+  erb(:'/sale/edit')
 end
 
 # UPDATE

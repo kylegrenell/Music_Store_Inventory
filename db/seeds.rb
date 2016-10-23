@@ -42,7 +42,7 @@ kit1 = Instrument.new({'brand' => "Ludwig Club Date ", 'type' => "Drums", 'cost'
 kit1.save()
 kit2 = Instrument.new({'brand' => "Gretsch Catalina", 'type' => "Drums", 'cost' => 800, 'quantity' => 6})
 kit2.save()
-kit3 = Instrument.new({'brand' => "Pearl Export Series", 'type' => "", 'cost' => 785, 'quantity' => 7})
+kit3 = Instrument.new({'brand' => "Pearl Export Series", 'type' => "Drums", 'cost' => 785, 'quantity' => 7})
 kit3.save()
 
 customer1 = Customer.new({'name' => 'Moe', 'address' => '21 Stooge Street, Edinburgh', 'funds' => 2000})

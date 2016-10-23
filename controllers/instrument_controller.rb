@@ -4,13 +4,12 @@ require_relative('../models/instrument')
 # INDEX
 get '/instruments' do
   @instrument = Instrument.all
-  erb(:'instrument/index')
+  erb(:'/instrument/index')
 end
 
 # NEW
 get '/instruments/new' do
-  erb(:'instrument/new')
-erb
+  erb(:'/instrument/new')
 end
 
 # CREATE
@@ -22,14 +21,14 @@ post '/instruments' do
 # SHOW
 get '/instruments/:id' do
   @instrument = Instrument.find(params['id'])
-  erb(:'instrument/show')
+  erb(:'/instrument/show')
 end
 
 # EDIT
 get '/instruments/:id/edit' do
   @instrument = Instrument.find(params[:id])
   @sales = Sales.all()
-  erb(:'instrument/edit')
+  erb(:'/instrument/edit')
 end
 
 # UPDATE
