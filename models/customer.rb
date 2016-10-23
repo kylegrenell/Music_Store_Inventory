@@ -25,7 +25,7 @@ end
   end
 
   def self.find(id)
-    sql = "SELECT * FROM customers WHERE id=#{@id}"
+    sql = "SELECT * FROM customers WHERE id=#{id};"
     return Customer.map_item(sql)
   end
   

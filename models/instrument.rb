@@ -26,14 +26,14 @@ class Instrument
   end
 
   def self.find(id)
-    sql = "SELECT * FROM instruments WHERE id = #{id}"
+    sql = "SELECT * FROM instruments WHERE id =#{id};"
     return Instrument.map_item(sql)
   end
   
 
   def self.map_items(sql)
     instruments = SqlRunner.run(sql)
-    result = instruments.map { |i| Instrument.new( i ) }
+    result = instruments.map {|i| Instrument.new(i)}
     return result
   end
 

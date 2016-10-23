@@ -1,0 +1,10 @@
+<h2>Sales</h2>
+
+<li><a href="/sales/new">Add stock</a> </li>
+
+
+<% @sales.each do |sale| %>
+  <p>Sale Details:</p>
+  <p><%= instrument.brand %></p>
+  <p><%= customer.name %>, £<%= instrument.cost %></p>
+<% end %>

@@ -16,11 +16,11 @@ end
 post '/instruments' do
   @instrument = Instrument.new(params)
   @instrument.save 
-  redirect to("instruments")
+  redirect to("/instruments")
 
 # SHOW
 get '/instruments/:id' do
-  @instrument = Instrument.find(params['id'])
+  @instrument = Instrument.find(params[:id])
   erb(:'/instrument/show')
 end
 

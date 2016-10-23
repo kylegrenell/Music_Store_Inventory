@@ -10,7 +10,6 @@ end
 # NEW
 get '/instruments/new' do
   erb(:'/sale/new')
-erb
 end
 
 # CREATE
@@ -21,7 +20,7 @@ post '/sales' do
 
 # SHOW
 get '/sales/:id' do
-  @sale = Sale.find(params['id'])
+  @sale = Sale.find(params[:id])
   erb(:'/sale/show')
 end
 

@@ -27,7 +27,7 @@ end
 # EDIT
 get '/customers/:id/edit' do
   @customer = Customer.find(params[:id])
-  @sales = Sales.all()
+  @sales = Customer.all()
   erb(:'/customer/edit')
 end
 

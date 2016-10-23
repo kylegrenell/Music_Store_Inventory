@@ -1,0 +1,10 @@
+<%= @instrument.name %>
+<p>
+<a href="/instruments/<%= @instrument.id %>/edit">Edit</a> 
+</p>
+<form action="/instruments/<%= @instrument.id %>" method="post">
+
+<input type="submit" value="Delete"/>
+<input name="_method" type="hidden" value="Delete"/>
+</form>
+
