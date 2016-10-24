@@ -1,5 +1,6 @@
 require 'pry-byebug'
 require_relative('../models/sale')
+require_relative('../models/instrument')
 require('json')
 
 # INDEX
@@ -10,14 +11,15 @@ end
 
 # NEW
 get '/sales/new' do
+  @instruments = Instrument.all()
   erb(:'/sale/new')
 end
 
 # CREATE
 post '/sales' do
-  @sales = Sale.new(params)
-  @sale.save 
+  @sales = Sale.new(params) 
   redirect to("sales")
+end
 
 # SHOW
 get '/sales/:id' do
@@ -39,7 +41,7 @@ put '/sales/:id' do
 end
 
 # DELETE
-delete '/sales/:id do'
+delete '/sales/:id do' do
   Sale.delete(params[:id])
   redirect to('/sales')
 end

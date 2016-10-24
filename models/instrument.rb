@@ -52,9 +52,9 @@ class Instrument
     SqlRunner.run(sql)
   end
 
-  def self.count()
-    sql = "SELECT SUM(quantity) FROM instruments;"
-    SqlRunner.run(sql).first
-  end
+  # def self.count()
+  #   sql = "SELECT SUM(quantity) FROM instruments;"
+  #   SqlRunner.run(sql).first
+  # end
 
 end
