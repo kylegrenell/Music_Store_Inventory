@@ -35,4 +35,8 @@ class TestCustomer < Minitest::Test
     assert_equal(5, @guitar3.quantity)
   end
 
+  # def test_instrument_count
+  #   assert_equal(201, @Instrument.new)
+  # end
+
 end

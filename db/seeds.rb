@@ -5,7 +5,7 @@ require_relative ('../models/sale')
 
 Instrument.delete_all()
 Customer.delete_all()
-Sales.delete_all()
+Sale.delete_all()
 
 
 guitar1 = Instrument.new({'brand' => "Fender 52 Reissue", 'type' => "Electric Guitar", 'cost' => 1499, 'quantity' => 10})

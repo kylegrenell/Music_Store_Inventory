@@ -12,6 +12,11 @@ class Sale
     @customer_id = params['customer_id'].to_i
   end
 
+  def test_total_revenue
+    result = @sales.total_revenue
+    assert_equal( 60, result )
+  end
+
   def save()
     sql = "INSERT INTO sales (instrument_id, customer_id) VALUES (#{@instrument_id}, #{@customer_id}) RETURNING *;"
     sale = SqlRunner.run(sql).first
@@ -44,6 +49,30 @@ class Sale
     sql = "DELETE FROM sales;"
     SqlRunner.run(sql)
   end
+
+  def self.delete(id)
+    sql = "DELETE FROM sales WHERE id =#{id};"
+    SqlRunner.run(sql)
+  end
+
+  def instrument()
+    sql = "SELECT * FROM instruments WHERE id=#{instrument_id};"
+    instrument = SqlRunner.run(sql)
+    result = Instrument.new(instrument.first)
+    return result
+  end
+
+  def customer()
+    sql = "SELECT * FROM customers WHERE id=#{customer_id};"
+    customer = SqlRunner.run(sql)
+    result = Customer.new(customer.first)
+    return result
+  end
+
+
+  # def min_stock
+  #   minimum = instrument.count{|instrument| instrument < 3} 
+  # end
 
 end
 

@@ -2,11 +2,14 @@
 
 <form action="/sales" method="post">
 
-  <label for="stock">Stock:</label>
+  <label for="stock">Instrument sold:</label>
   <input type="text" name="stock"><br>
 
   <label for="quantity">Quantity:</label>
-  <input type="text" name="quantity"><br>
+  <input type="number" name="quantity"><br>
+
+  <label for="cost">Earnings:</label>
+  <input type="number" min="1" name="cost"><br>  
 
   <input type='submit' value="add">
 </form>

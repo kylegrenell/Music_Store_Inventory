@@ -47,4 +47,14 @@ class Instrument
     SqlRunner.run(sql)
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM instruments WHERE id =#{id};"
+    SqlRunner.run(sql)
+  end
+
+  def self.count()
+    sql = "SELECT SUM(quantity) FROM instruments;"
+    SqlRunner.run(sql).first
+  end
+
 end

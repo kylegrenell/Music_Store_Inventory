@@ -1,18 +1,14 @@
 
 
-/*ul {
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 15%;
     background-color: #f1f1f1;
     height: 100%;  Full height 
-    position: fixed; /* Make it stick, even on scroll 
-    overflow: auto; /* Enable scrolling if the sidenav has too much content 
-}
-*/*/*/
-/*body {
-    margin: 0;
+    position: fixed;  
+    overflow: auto; 
 }
 
 li a {
@@ -30,4 +26,4 @@ li a.active {
 li a:hover:not(.active) {
     background-color: #555;
     color: white;
-}*/
+}

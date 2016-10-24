@@ -39,7 +39,7 @@ end
 
 # DELETE
 delete '/instruments/:id do'
-  Instrument.destroy(params[:id])
+  Instrument.delete(params[:id])
   redirect to('/instruments')
 end
 

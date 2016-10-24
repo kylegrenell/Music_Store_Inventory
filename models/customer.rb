@@ -45,6 +45,11 @@ end
     SqlRunner.run(sql)
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM customers WHERE id =#{id};"
+    SqlRunner.run(sql)
+  end
+
 end
 
 

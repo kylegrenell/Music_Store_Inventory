@@ -1,0 +1,9 @@
+<h2>Sales</h2>
+
+<div>
+  <% @sales.each do |sale| %>
+  <p>Instrument: <%= sale.instrument.brand  %> <%= sale.instrument.type  %></p> 
+  <p>Purchased by: <%= sale.customer.name  %></p><br><hr>
+  <% end %>
+<!--   <li><a href="/sales/new">Add a Sale</a></li>
+ --></div>
