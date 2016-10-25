@@ -75,6 +75,12 @@ class Accessory
       return result.first['count'].to_i
     end
 
+    def self.total_accessories_assets()
+      sql = "SELECT SUM(cost) FROM accessories;"
+      result = SqlRunner.run(sql)
+      return result.first['sum'].to_i
+    end
+
     def self.stock_level_accessories()
       number = self.stock_count_accessories
       case number
@@ -116,6 +122,5 @@ class Accessory
         return ("SUFFICIENT")
       end
     end
-
 
 end

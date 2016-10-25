@@ -16,9 +16,11 @@ get '/inventory' do
   @stock_quantity = Instrument.stock_quantity
   @stock_level = Instrument.stock_level
   @instrument_stock_level = Instrument.instrument_stock_level
+  @total_instrument_assets = Instrument.total_instrument_assets
   @stock_count_accessories = Accessory.stock_count_accessories
   @stock_quantity_accessories = Accessory.stock_quantity_accessories
   @stock_level_accessories = Accessory.stock_level_accessories
   @accessory_stock_level = Accessory.accessory_stock_level
+  @total_accessories_assets = Accessory.total_accessories_assets
   erb(:'/inventory')
 end

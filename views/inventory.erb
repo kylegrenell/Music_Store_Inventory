@@ -8,6 +8,9 @@
 <p><strong><em>Total Instruments: </strong></em><%= @stock_quantity %>
 <p><strong><em>Stock Levels: </strong></em><%= @instrument_stock_level %>
 
+<p><strong><em>Total Instrument Assets: £</strong></em><%= @total_instrument_assets %>
+
+
 <p><h2><a href="/instruments">Accessories: </a></h2></p>
 <p><strong><em>Total Types: </strong></em><%= @stock_count_accessories %>
 <p><strong><em>Stock Variety: </strong></em><%= @stock_level_accessories %>
@@ -15,6 +18,8 @@
 <p><strong><em>Total Accessories: </strong></em><%= @stock_quantity_accessories %>
 <p><strong><em>Stock Levels: </strong></em><%= @accessory_stock_level %>
 
+<p><strong><em>Total Accessory Assets: £</strong></em><%= @total_accessories_assets %>
 
-<p>Total sales:
-Total assets: cost x quantity
+
+
+<p><h2>Combined Total Assets: £<%= @total_instrument_assets %> + <%= @total_accessories_assets %></h2></p>

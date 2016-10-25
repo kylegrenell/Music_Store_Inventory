@@ -75,6 +75,12 @@ class Instrument
     return result.first['count'].to_i
   end
 
+  def self.total_instrument_assets()
+    sql = "SELECT SUM(cost) FROM instruments;"
+    result = SqlRunner.run(sql)
+    return result.first['sum'].to_i
+  end
+
   def self.stock_level()
     number = self.stock_count
     case number
