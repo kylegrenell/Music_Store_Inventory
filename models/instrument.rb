@@ -30,14 +30,14 @@ class Instrument
     return Instrument.map_item(sql)
   end
   
-  def self.update(params)
+  def update(params)
       sql = (  
         "UPDATE instruments SET 
           brand='#{params['brand']}',
           type='#{params['type']}',
           cost=#{params['cost']},
           quantity=#{params['quantity']}
-          WHERE id=#{params['id']}"
+          WHERE id=#{params['id']} RETURNING *;"
       ) 
       SqlRunner.run(sql)
   end
@@ -73,6 +73,34 @@ class Instrument
     sql = "SELECT COUNT (*) FROM instruments;"
     result = SqlRunner.run(sql)
     return result.first['count'].to_i
+  end
+
+  def self.stock_level()
+    number = self.stock_count
+    case number
+    when (0..5)
+      return ("Stock levels are LOW")
+    when (6..15)
+      return ("Stock levels are MEDIUM")
+    when (16..30)
+      return ("Stock levels are HIGH")
+    else
+      return ("Rest your wallet Rick, get out there and SELL SELL SELL")
+    end
+  end
+
+  def self.instrument_stock_level()
+    number = self.stock_quantity
+    case number
+    when (0..5)
+      return ("Stock levels are LOW")
+    when (6..15)
+      return ("Stock levels are MEDIUM")
+    when (16..30)
+      return ("Stock levels are HIGH")
+    else
+      return ("Rest your wallet Rick, get out there and SELL SELL SELL")
+    end
   end
 
 

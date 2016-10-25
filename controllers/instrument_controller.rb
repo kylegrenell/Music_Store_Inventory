@@ -35,7 +35,8 @@ end
 
 # UPDATE 
 put '/instruments/:id' do
-  @instrument = Instrument.new(params)
+  instrument = Instrument.find(params[:id])
+  instrument.update(params)
   redirect to("/instruments/#{params[:id]}")
 end
 

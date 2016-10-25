@@ -1,24 +1,23 @@
-<div class="content">
-
   <h2>Update Instrument</h2>
 
   <form action="/instruments/<%= @instrument.id %>" method="post">
     <input type="hidden" name="_method" value="put" />
 
-    <label for="brand">Instrument type:</label>
-      <select name="brand">
+    <label for="brand">Type: </label>
+      <select name="brand" value="<%= @instrument.type() %>">
         <option value="Guitar" <%= "selected" if @instrument.brand == "Guitar" %>>Guitar</option>
         <option value="Bass" <%= "selected" if @instrument.brand == "Bass" %>>Bass</option>
+        <option value="Drums" <%= "selected" if @instrument.brand == "Drums" %>>Drums</option>
       </select>
     
-    <label for="type">Type</label>
-    <input type="text" name="type" value="<%= @instrument.type %>"
+    <label for="type">Brand: </label>
+    <input type="text" name="type" value="<%= @instrument.brand() %>"
 
-    <label for="cost">Cost</label>
-    <input type="number" name="cost" value="<%= @instrument.cost %>"
+    <label for="cost">Cost: </label>
+    <input type="number" name="cost" value="<%= @instrument.cost() %>"
 
-    <label for="quantity">Quantity:</label>
-    <input type="number" name="quantity" min="1" max="30" value="<%= @instrument.quantity() %>"><br>
+    <label for="quantity">Quantity: </label>
+    <input type="number" name="quantity" min="1" max="50" value="<%= @instrument.quantity() %>"><br>
 
     <br>
 
