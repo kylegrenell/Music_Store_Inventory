@@ -13,8 +13,6 @@ class Inventory
     @sell_stock = params['sell_stock'].to_i
   end
 
-
-
   def stock_count()
     return sales().count
   end
@@ -28,7 +26,5 @@ class Inventory
     instrument.sell_stock()
     update()
   end
-
-
 
 end

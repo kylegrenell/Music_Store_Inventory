@@ -12,9 +12,7 @@ CREATE TABLE instruments (
 CREATE TABLE stocks (
   id serial4 PRIMARY KEY,
   quantity INT4,
-  instrument_id INT4 REFERENCES instruments(id),
-  buy INT4,
-  sell INT4
+  instrument_id INT4 REFERENCES instruments(id)
 );
 
 

@@ -4,7 +4,7 @@ require ('pry-byebug')
 
 class Instrument
 
-  attr_reader :id, :type, :brand, :cost, :quantity
+  attr_reader(:id, :type, :brand, :cost, :quantity)
 
   def initialize (params)
     @id = params['id'].to_i
@@ -30,6 +30,17 @@ class Instrument
     return Instrument.map_item(sql)
   end
   
+  def self.update(params)
+      sql = (  
+        "UPDATE instruments SET 
+          brand='#{params['brand']}',
+          type='#{params['type']}',
+          cost=#{params['cost']},
+          quantity=#{params['quantity']}
+          WHERE id=#{params['id']}"
+      ) 
+      SqlRunner.run(sql)
+  end
 
   def self.map_items(sql)
     instruments = SqlRunner.run(sql)
@@ -52,9 +63,17 @@ class Instrument
     SqlRunner.run(sql)
   end
 
-  def self.count()
+  def self.stock_quantity()
     sql = "SELECT SUM(quantity) FROM instruments;"
-    SqlRunner.run(sql).first
+    result = SqlRunner.run(sql)
+    return result.first['sum'].to_i
   end
+
+  def self.stock_count()
+    sql = "SELECT COUNT (*) FROM instruments;"
+    result = SqlRunner.run(sql)
+    return result.first['count'].to_i
+  end
+
 
 end

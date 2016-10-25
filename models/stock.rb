@@ -73,6 +73,7 @@ class Stock
     
   def order_new_stock(quantity)
     return quantity <= 5
+    puts "Low"
   end
 
   def stock_medium(quantity)

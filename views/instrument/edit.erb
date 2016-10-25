@@ -1,14 +1,39 @@
 <div class="content">
 
-  <h2>Update Instruments:</h2>
+  <h2>Update Instrument</h2>
 
   <form action="/instruments/<%= @instrument.id %>" method="post">
-    <label for="name">Name:</label>
-    <input type="text" name="name" value="<%= @instrument.type %>"><br>
-    
+    <input type="hidden" name="_method" value="put" />
 
-    <input type='submit' value="Update Instrument">
+    <label for="brand">Instrument type:</label>
+      <select name="brand">
+        <option value="Guitar" <%= "selected" if @instrument.brand == "Guitar" %>>Guitar</option>
+        <option value="Bass" <%= "selected" if @instrument.brand == "Bass" %>>Bass</option>
+      </select>
+    
+    <label for="type">Type</label>
+    <input type="text" name="type" value="<%= @instrument.type %>"
+
+    <label for="cost">Cost</label>
+    <input type="number" name="cost" value="<%= @instrument.cost %>"
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" min="1" max="30" value="<%= @instrument.quantity() %>"><br>
+
+    <br>
+
+    <p><input type='submit' value="Update Instrument"></p>
   </form>
 
-</div>  
+  <form onsubmit="return confirm('Are you sure you want to delete the following instrument?')" action="/instruments/<%= @instrument.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit">Delete Instrument</button>
+    </form>
+<br>
+<br>
+<a href="/instruments">Back</a>
+
+
+
+  
 

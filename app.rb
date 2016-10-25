@@ -10,5 +10,7 @@ get '/' do
 end
 
 get '/inventory' do
+  @stock_count = Instrument.stock_count
+  @stock_quantity = Instrument.stock_quantity
   erb(:'/inventory')
 end

@@ -1,19 +1,15 @@
-
 <div id="content">
-
 <h2>Instruments</h2>
 <li><a href="/instruments/new">Add a new Instrument</a></li>
 <% @instrument.each do |instrument| %>
 
 <p>Instrument details</p>
-<p><a href="/instruments/<%= instrument.id %>">
+<p><a href="/instruments/<%= instrument.id %>"></p>
     <p><%= instrument.type %></p></a>
     <p><%= instrument.brand %> - £<%= instrument.cost %></p>
 
-  </p>
 <a href="/instruments/<%= instrument.id %>/edit">Edit Instrument</a>
   <hr>
 <% end %>
-
 </div>
 

@@ -1,5 +1,5 @@
 require_relative('../models/stock')
-require_relative('../models/instrument')
+# require_relative('../models/instrument')
 
 # INDEX
 get '/stocks' do
@@ -21,13 +21,13 @@ end
 
 # SHOW
 get '/stocks/:id' do
-  @stock = Stock.find(params[:id])
+  @stock = Stock.find(params['id'])
   erb(:'/stocks/show')
 end
 
 # EDIT
 get '/stocks/:id/edit' do
-  @stock = Stock.find(params[:id])
+  @stock = Stock.find(params['id'])
   @stocks = Stock.all()
   erb(:'/stocks/edit')
 end
@@ -40,6 +40,6 @@ end
 
 # DELETE
 delete '/stocks/:id do' do
-  Stock.delete(params[:id])
+  Stock.delete(params['id'])
   redirect to('/stocks')
 end
