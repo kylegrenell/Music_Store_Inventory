@@ -63,20 +63,20 @@ class Accessory
       SqlRunner.run(sql)
     end
 
-    def self.stock_quant()
+    def self.stock_quantity_accessories()
       sql = "SELECT SUM(quantity) FROM accessories;"
       result = SqlRunner.run(sql)
       return result.first['sum'].to_i
     end
 
-    def self.stock_cnt()
+    def self.stock_count_accessories()
       sql = "SELECT COUNT (*) FROM accessories;"
       result = SqlRunner.run(sql)
       return result.first['count'].to_i
     end
 
-    def self.stock_lvl()
-      number = self.stock_cnt
+    def self.stock_level_accessories()
+      number = self.stock_count_accessories
       case number
       when (0..10)
         return ("LOW")
@@ -90,7 +90,7 @@ class Accessory
     end
 
     def self.accessory_stock_level()
-      number = self.stock_quant
+      number = self.stock_quantity_accessories
       case number
       when (0..50)
         return ("LOW")
