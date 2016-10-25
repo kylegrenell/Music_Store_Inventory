@@ -1,11 +1,12 @@
 require ('pry-byebug')
 require_relative ('../models/instrument')
-require_relative( '../models/stock' )
-require_relative( '../models/till' )
+require_relative( '../models/sale' )
+require_relative( '../models/accessories' )
 
 
 Instrument.delete_all()
-Stock.delete_all()
+Sale.delete_all()
+Accessory.delete_all()
 
 
 guitar1 = Instrument.new({'brand' => "Fender 52 Reissue", 'type' => "Guitar", 'cost' => 1499, 'quantity' => 10})
@@ -45,16 +46,23 @@ kit2.save()
 kit3 = Instrument.new({'brand' => "Pearl Export Series", 'type' => "Drums", 'cost' => 785, 'quantity' => 7})
 kit3.save()
 
-# stock1 = Stock.new({'instrument_id' => guitar1.id})
-# stock1.save()
-# stock2 = Stock.new({'instrument_id' => guitar3.id})
-# stock2.save()
-# stock3 = Stock.new({'instrument_id' => kit1.id})
-# stock3.save()
-# stock4 = Stock.new({'instrument_id' => bass1.id})
-# stock4.save()
-# stock5 = Stock.new({'instrument_id' => guitar7.id})
-# stock5.save()
+accessory1 = Accessory.new({'brand' => "Boss", 'type' => "Guitar Pedal", 'cost' => 100, 'quantity' => 30})
+accessory1.save()
+accessory2 = Accessory.new({'brand' => "Dunlop", 'type' => "Guitar Pick", 'cost' => 1, 'quantity' => 200})
+accessory2.save()
+accessory3 = Accessory.new({'brand' => "Zildjian", 'type' => "Drum Sticks", 'cost' => 20, 'quantity' => 100})
+accessory3.save()
+
+sale1 = Sale.new({'instrument_id' => guitar1.id})
+sale1.save()
+sale2 = Sale.new({'instrument_id' => guitar3.id})
+sale2.save()
+sale3 = Sale.new({'instrument_id' => kit1.id})
+sale3.save()
+sale4 = Sale.new({'instrument_id' => bass1.id})
+sale4.save()
+sale5 = Sale.new({'instrument_id' => guitar7.id})
+sale5.save()
 
 binding.pry
 nil

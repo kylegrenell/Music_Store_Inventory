@@ -3,7 +3,7 @@
 <p>
 <%= @instrument.type %> - <%= @instrument.brand %> - £<%= @instrument.cost %> 
 <p>There are now <%= @instrument.quantity %> in stock</p>
-
+<p> This stock level is: <%= @instrument.instrument_quantity %></p>
 </form>
 <a href="/instruments/<%= @instrument.id %>/edit ">Edit Instrument</a>
 </div>

@@ -1,0 +1,15 @@
+<div id="content">
+<h2>Accessories</h2>
+<li><a href="/accessories/new">Add a new Accessory</a></li>
+<% @accessory.each do |accessory| %>
+
+<p>Accessory details</p>
+<p><a href="/accessories/<%= accessory.id %>"></p>
+    <p><%= accessory.type %></p></a>
+    <p><%= accessory.brand %> - £<%= accessory.cost %></p> 
+    <p><em>Quantity: </em><%= accessory.quantity %></p>
+
+<a href="/accessories/<%= accessory.id %>/edit">Edit Accessory</a>
+  <hr>
+<% end %>
+</div>

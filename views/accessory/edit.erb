@@ -1,0 +1,33 @@
+  <h2>Update Accessories</h2>
+
+  <form action="/accessories/<%= @accessory.id %>" method="post">
+    <input type="hidden" name="_method" value="put" />
+
+    <label for="brand">Type: </label>
+      <select name="brand" value="<%= @accessory.type() %>">
+        <option value="Guitar Pedal" <%= "selected" if @accessory.brand == "Guitar Pedal" %>>Guitar Pedal</option>
+        <option value="Guitar Pick" <%= "selected" if @accessory.brand == "Guitar Pick" %>>Guitar Pick</option>
+        <option value="Drum Sticks" <%= "selected" if @accessory.brand == "Drum Sticks" %>>Drum Sticks</option>
+      </select>
+    
+    <label for="type">Brand: </label>
+    <input type="text" name="type" value="<%= @accessory.brand() %>"
+
+    <label for="cost">Cost: </label>
+    <input type="number" name="cost" value="<%= @accessory.cost() %>"
+
+    <label for="quantity">Quantity: </label>
+    <input type="number" name="quantity" min="1" max="50" value="<%= @accessory.quantity() %>"><br>
+
+
+    <br>
+
+    <p><input type='submit' value="Update Accessories"></p>
+  </form>
+
+  <form onsubmit="return confirm('Are you sure you want to delete the following accessory?')" action="/accessorys/<%= @accessory.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit">Delete Accessories</button>
+    </form>
+<br>
+<a href="/accessories">Back</a>

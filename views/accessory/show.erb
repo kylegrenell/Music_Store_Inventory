@@ -1,0 +1,10 @@
+<div id="content">
+<h2>Accesory Details</h2>
+<p>
+<%= @accessory.type %> - <%= @accessory.brand %> - £<%= @accessory.cost %> 
+<p>There are now <%= @accessory.quantity %> in stock</p>
+<p> This stock level is: <%= @accessory.accessory_quantity %></p>
+</form>
+<a href="/accessories/<%= @accessory.id %>/edit ">Edit Instrument</a>
+</div>
+

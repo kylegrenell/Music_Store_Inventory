@@ -2,7 +2,7 @@ require ('pg')
 require_relative('../db/sql_runner')
 require ('pry-byebug')
 
-class Stock
+class Sale
 
   attr_reader :id, :instrument_id, :quantity
 
@@ -13,25 +13,25 @@ class Stock
   end
 
   def save()
-    sql = "INSERT INTO stocks (quantity, instrument_id) VALUES (#{@quantity}, #{@instrument_id}) RETURNING *;"
+    sql = "INSERT INTO sales (quantity, instrument_id) VALUES (#{@quantity}, #{@instrument_id}) RETURNING *;"
     sale = SqlRunner.run(sql).first
     @id = sale['id'].to_i
   end
 
   def self.all()
-    sql = "SELECT * FROM stocks;"
+    sql = "SELECT * FROM sales;"
     return Stock.map_items(sql)
   end
 
   def self.find(id)
-    sql = "SELECT * FROM stocks WHERE id =#{id}"
+    sql = "SELECT * FROM sales WHERE id =#{id}"
     return Stock.map_item(sql)
   end
   
 
   def self.map_items(sql)
-    stock = SqlRunner.run(sql)
-    result = stock.map { |s| Stock.new(s) }
+    sale = SqlRunner.run(sql)
+    result = sale.map { |s| Stock.new(s) }
     return result
   end
 
@@ -41,12 +41,12 @@ class Stock
   end
 
   def self.delete_all()
-    sql = "DELETE FROM stocks;"
+    sql = "DELETE FROM sales;"
     SqlRunner.run(sql)
   end
 
   def self.delete(id)
-    sql = "DELETE FROM stocks WHERE id =#{id};"
+    sql = "DELETE FROM sales WHERE id =#{id};"
     SqlRunner.run(sql)
   end
 
@@ -57,32 +57,6 @@ class Stock
     return result
   end
 
-  def buy()
-    @sell += 1
-    update()
-  end
-
-  def sell()
-    @sell -= 1
-    update()
-  end
-
-  def number_of_sales()
-    return stock().count
-  end
-    
-  def order_new_stock(quantity)
-    return quantity <= 5
-    puts "Low"
-  end
-
-  def stock_medium(quantity)
-    return quantity <= 10
-  end
-
-  def stock_high(quantity)
-    return quantity <= 15
-  end
 
 end
 

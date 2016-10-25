@@ -78,28 +78,42 @@ class Instrument
   def self.stock_level()
     number = self.stock_count
     case number
-    when (0..5)
-      return ("Stock levels are LOW")
-    when (6..15)
-      return ("Stock levels are MEDIUM")
-    when (16..30)
-      return ("Stock levels are HIGH")
+    when (0..10)
+      return ("LOW")
+    when (11..25)
+      return ("MEDIUM")
+    when (26..35)
+      return ("HIGH")
     else
-      return ("Rest your wallet Rick, get out there and SELL SELL SELL")
+      return ("SUFFICIENT")
     end
   end
 
   def self.instrument_stock_level()
     number = self.stock_quantity
     case number
-    when (0..5)
-      return ("Stock levels are LOW")
-    when (6..15)
-      return ("Stock levels are MEDIUM")
-    when (16..30)
-      return ("Stock levels are HIGH")
+    when (0..50)
+      return ("LOW")
+    when (51..150)
+      return ("MEDIUM")
+    when (151..250)
+      return ("HIGH")
     else
-      return ("Rest your wallet Rick, get out there and SELL SELL SELL")
+      return ("SUFFICIENT")
+    end
+  end
+
+  def instrument_quantity()
+    number = @quantity
+    case number
+    when (0..5)
+      return ("LOW")
+    when (6..10)
+      return ("MEDIUM")
+    when (11..20)
+      return ("HIGH")
+    else 
+      return ("SUFFICIENT")
     end
   end
 

@@ -28,3 +28,33 @@ li a:hover:not(.active) {
     color: white;
 }
 
+body {
+background-color: #006666;
+text-align: center;
+font-family: sans-serif;
+}
+
+h1 {
+  color: #FFFAFA;
+  font-family: arial;
+  text-align: center;
+}
+
+
+h2 {
+  color: #FFFAFA;
+  font-family: arial;
+  text-align: center;
+}
+
+p {
+  color: #FFFAFA;
+  font-family: arial;
+  text-align: center;
+}
+
+a {
+  color: #FFFAFA;
+  font-family: arial;
+  text-align: center;
+}

@@ -6,7 +6,8 @@
 <p>Instrument details</p>
 <p><a href="/instruments/<%= instrument.id %>"></p>
     <p><%= instrument.type %></p></a>
-    <p><%= instrument.brand %> - £<%= instrument.cost %></p>
+    <p><%= instrument.brand %> - £<%= instrument.cost %></p> 
+    <p><em>Quantity: </em><%= instrument.quantity %></p>
 
 <a href="/instruments/<%= instrument.id %>/edit">Edit Instrument</a>
   <hr>
