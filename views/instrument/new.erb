@@ -1,23 +1,30 @@
-<h2>Add Instrument</h2>
 
-<form action="/instruments" method="post">
 
-  <label for="type">Type:</label>
-  <input type="text" name="type"><br>
+<div class="content">
 
-  <label for="brand">Brand:</label>
-  <input type="text" name="brand"><br>
+  <h2>Add Instrument</h2>
 
-  <label for="cost">Cost:</label>
-  <input type="number" name="cost"><br>
+  <form action="/instruments" method="post">
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" min="1"><br>
 
-  <label for="quantity">Quantity:</label>
-  <input type="number" name="quantity"><br> 
-
-  <input type='submit' value="add">
-</form>
+    <label for="instrument">Instrument</label>
+    <select name="instrument_id">
+      <% @instruments.each do |instrument| %>
+      <option value="<%= instrument.id %>"> <%= instrument.brand %> - <%= instrument.type %> - £<%= instrument.cost %></option>    
+      <% end %>
+    </select>
+    <br>
+  
+    <p>
+      <input type='submit' value="Create Stock">
+    </form>
+  </p>
+</div>
 
 <br>
 <br>
 <a href="/">Back</a>
+
+
 

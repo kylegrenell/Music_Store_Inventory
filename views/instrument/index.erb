@@ -1,10 +1,19 @@
+
+<div id="content">
+
 <h2>Instruments</h2>
-
 <li><a href="/instruments/new">Add a new Instrument</a></li>
-
 <% @instrument.each do |instrument| %>
-  <p><strong>Instrument Details:</strong></p>
-  <p><%= instrument.brand %></p>
-  <p><%= instrument.type %>, £<%= instrument.cost %></p>
-  <p><strong>There are <%= instrument.quantity %> left in stock.</strong>
+
+<p>Instrument details</p>
+<p><a href="/instruments/<%= instrument.id %>">
+    <p><%= instrument.type %></p></a>
+    <p><%= instrument.brand %> - £<%= instrument.cost %></p>
+
+  </p>
+<a href="/instruments/<%= instrument.id %>/edit">Edit Instrument</a>
+  <hr>
 <% end %>
+
+</div>
+

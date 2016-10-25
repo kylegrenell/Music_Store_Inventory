@@ -1,10 +1,13 @@
-<%= @instrument.name %>
-<p>
-<a href="/instruments/<%= @instrument.id %>/edit">Edit</a> 
-</p>
-<form action="/instruments/<%= @instrument.id %>" method="post">
 
-<input type="submit" value="Delete"/>
-<input name="_method" type="hidden" value="Delete"/>
+
+<div id="content">
+<h2>Instrument Details</h2>
+<p>
+<%= @instrument.type %> - <%= @instrument.brand %>
+</p>
+<form action="/instruments/<%= @instrument.id %>/delete" method="post">
+  <input type="submit" value="Delete Instrument"/>
 </form>
 
+</div>
+<a class="bottom-link" href="/instruments/<%= @instrument.id %>/edit ">Edit Instrument</a>

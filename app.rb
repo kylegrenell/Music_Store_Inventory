@@ -1,12 +1,14 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
-require_relative ('./controllers/customer_controller')
 require_relative ('./controllers/instrument_controller')
-require_relative ('./controllers/sales_controller')
-require_relative ('./models/customer')
+require_relative ('./controllers/stock_controller')
 require_relative ('./models/instrument')
-require_relative ('./models/sale')
+require_relative ('./models/stock')
 
 get '/' do
-  erb(:home)
+  redirect to('/inventory')
+end
+
+get '/inventory' do
+  erb(:'/inventory')
 end

@@ -1,4 +1,3 @@
-require 'pry-byebug'
 require_relative('../models/instrument')
 
 # INDEX
@@ -9,6 +8,7 @@ end
 
 # NEW
 get '/instruments/new' do
+  @instruments = Instrument.all()
   erb(:'/instrument/new')
 end
 
@@ -26,16 +26,19 @@ end
 
 # EDIT
 get '/instruments/:id/edit' do
-  @instrument = Instrument.find(params[:id])
-  @sales = Sales.all()
+  id = params['id']
+  @instrument = Instrument.find(id)
   erb(:'/instrument/edit')
 end
 
-# UPDATE
-put '/instruments/:id' do
-  @instrument = Instrument.new(params)
-  redirect to('/instruments/#{params[:id]}')
+# UPDATE 
+post '/artists/:id' do
+  id = params['id']
+  instrument = Instrument.new(params)
+  instrument.update()
+  redirect to('/instruments')
 end
+
 
 # DELETE
 delete '/instruments/:id do'

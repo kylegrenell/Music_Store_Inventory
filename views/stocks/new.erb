@@ -1,0 +1,23 @@
+<div class="content">
+
+  <h2>Create Stock</h2>
+
+  <form action="/stocks/new" method="get">
+    <label for="instrument">Instrument</label>
+    <select name="instrument_id">
+        <% @instrument.each do |instrument| %>
+            <% if @instrument_id.to_i == instrument.id %>
+              <option selected="selected" value="<%= instrument.id %>"><%= instrument.type %></option>
+            <% else %>
+              <option value="<%= instrument.id %>"><%= instrument.brand %></option>
+            <% end %>
+        <% end %>
+    </select>
+    <input type='submit' value="Create new Instrument">
+  </form>
+
+
+    <input type='submit' value="Create Stock">
+  </form>
+
+</div>

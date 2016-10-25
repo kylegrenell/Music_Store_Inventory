@@ -1,11 +1,11 @@
 require ('pry-byebug')
-require_relative ('../models/customer')
 require_relative ('../models/instrument')
-require_relative ('../models/sale')
+require_relative( '../models/stock' )
+require_relative( '../models/till' )
+
 
 Instrument.delete_all()
-Customer.delete_all()
-Sale.delete_all()
+Stock.delete_all()
 
 
 guitar1 = Instrument.new({'brand' => "Fender 52 Reissue", 'type' => "Guitar", 'cost' => 1499, 'quantity' => 10})
@@ -45,23 +45,16 @@ kit2.save()
 kit3 = Instrument.new({'brand' => "Pearl Export Series", 'type' => "Drums", 'cost' => 785, 'quantity' => 7})
 kit3.save()
 
-customer1 = Customer.new({'name' => 'Moe', 'address' => '21 Stooge Street, Edinburgh', 'funds' => 2000})
-customer1.save()
-customer2 = Customer.new({'name' => 'Larry', 'address' => '23 Stooge Street, Edinburgh', 'funds' => 3000})
-customer2.save()
-customer3 = Customer.new({'name' => 'Curly', 'address' => '25 Stooge Street, Edinburgh', 'funds' => 4000})
-customer3.save()
-
-sale1 = Sale.new({'customer_id' => customer1.id, 'instrument_id' => guitar1.id})
-sale1.save()
-sale2 = Sale.new({'customer_id' => customer2.id, 'instrument_id' => guitar3.id})
-sale2.save()
-sale3 = Sale.new({'customer_id' => customer3.id, 'instrument_id' => kit1.id})
-sale3.save()
-sale4 = Sale.new({'customer_id' => customer1.id, 'instrument_id' => bass1.id})
-sale4.save()
-sale5 = Sale.new({'customer_id' => customer2.id, 'instrument_id' => guitar7.id})
-sale5.save()
+# stock1 = Stock.new({'instrument_id' => guitar1.id})
+# stock1.save()
+# stock2 = Stock.new({'instrument_id' => guitar3.id})
+# stock2.save()
+# stock3 = Stock.new({'instrument_id' => kit1.id})
+# stock3.save()
+# stock4 = Stock.new({'instrument_id' => bass1.id})
+# stock4.save()
+# stock5 = Stock.new({'instrument_id' => guitar7.id})
+# stock5.save()
 
 binding.pry
 nil
