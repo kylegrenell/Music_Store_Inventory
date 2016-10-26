@@ -7,7 +7,8 @@ CREATE TABLE instruments (
     type VARCHAR(255),
     brand VARCHAR(255),
     cost INT4,
-    quantity INT4
+    quantity INT4,
+    cost_price NUMERIC(10,2)
 );
 
 CREATE TABLE accessories (
@@ -15,8 +16,9 @@ CREATE TABLE accessories (
     type VARCHAR(255),
     brand VARCHAR(255),
     cost INT4,
-    quantity INT4
-);
+    quantity INT4,
+    cost_price NUMERIC(10,2)
+);  
 
 CREATE TABLE sales (
   id serial4 PRIMARY KEY,

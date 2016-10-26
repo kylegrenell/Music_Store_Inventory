@@ -4,7 +4,7 @@ require ('pry-byebug')
 
 class Accessory
 
-  attr_reader(:id, :type, :brand, :cost, :quantity)
+  attr_reader(:id, :type, :brand, :cost, :quantity, :cost_price)
 
   def initialize (params)
     @id = params['id'].to_i
@@ -12,10 +12,11 @@ class Accessory
     @type = params['type']
     @cost = params['cost'].to_i
     @quantity = params['quantity'].to_i
+    @cost_price = params['cost_price'].to_f
   end
 
     def save()
-      sql = "INSERT INTO accessories (brand, type, cost, quantity) VALUES ('#{@brand}', '#{@type}', #{@cost}, #{@quantity}) RETURNING *;"
+      sql = "INSERT INTO accessories (brand, type, cost, quantity, cost_price) VALUES ('#{@brand}', '#{@type}', #{@cost}, #{@quantity}, #{@cost_price}) RETURNING *;"
       accessories = SqlRunner.run(sql).first
       @id = accessories['id'].to_i
     end
@@ -36,7 +37,8 @@ class Accessory
             brand='#{params['brand']}',
             type='#{params['type']}',
             cost=#{params['cost']},
-            quantity=#{params['quantity']}
+            quantity=#{params['quantity']},
+            cost_price=#{params['cost_price']}
             WHERE id=#{params['id']} RETURNING *;"
         ) 
         SqlRunner.run(sql)
@@ -81,6 +83,12 @@ class Accessory
       return result.first['sum'].to_i
     end
 
+    def self.accessories_markup()
+      sql = "SELECT SUM(cost_price) FROM accessories;"
+      result = SqlRunner.run(sql)
+      return result.first['sum'].to_f
+    end
+
     def self.stock_level_accessories()
       number = self.stock_count_accessories
       case number
@@ -91,7 +99,7 @@ class Accessory
       when (26..35)
         return ("HIGH")
       else
-        return ("SUFFICIENT")
+        return ("FULL")
       end
     end
 
@@ -105,7 +113,7 @@ class Accessory
       when (151..250)
         return ("HIGH")
       else
-        return ("SUFFICIENT")
+        return ("FULL")
       end
     end
 
@@ -119,8 +127,7 @@ class Accessory
       when (11..20)
         return ("HIGH")
       else 
-        return ("SUFFICIENT")
+        return ("FULL")
       end
     end
-
 end
