@@ -1,15 +1,12 @@
-<div id="content">
-<h1>Accessories</h1>
-<li><a href="/accessories/new">Add a new Accessory</a></li>
+
+<a href="/accessories/new"><h3>~ Add an Accessory ~</h3></a>
+<p><h3><em>~ Details ~</em></h3></p>
 <% @accessory.each do |accessory| %>
-
-<p>Accessory details</p>
-<p><a href="/accessories/<%= accessory.id %>"></p>
-    <p><%= accessory.type %></p></a>
-    <p><%= accessory.brand %> - £<%= accessory.cost %></p> 
-    <p><em>Quantity: </em><%= accessory.quantity %></p>
-
-<a href="/accessories/<%= accessory.id %>/edit">Edit Accessory</a>
-  <hr>
+<div class="grid">
+  <div class="grid-row grid-row-sm">
+    <div class="cell"><a href="/accessories/<%= accessory.id %>"><%= accessory.brand %></a></div>
+    <div class="cell"><%= accessory.type %></div>
+    <div class="cell">£<%= accessory.cost %></div>
+    <div class="cell"><a href="/accessories/<%= accessory.id %>/edit">Edit</a></div>
+  </div>
 <% end %>
-</div>

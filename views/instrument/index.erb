@@ -1,16 +1,13 @@
-<div id="content">
-<h1>Instruments</h1>
-<li><a href="/instruments/new">Add a new Instrument</a></li>
+
+
+<a href="/instruments/new"><h3>~ Add a new Instrument ~</h3></a>
+<p><h3><em>~ Details ~</em></h3></p>
 <% @instrument.each do |instrument| %>
-
-<p>Instrument details</p>
-<p><a href="/instruments/<%= instrument.id %>"></p>
-    <p><%= instrument.type %></p></a>
-    <p><%= instrument.brand %> - £<%= instrument.cost %></p> 
-    <p><em>Quantity: </em><%= instrument.quantity %></p>
-
-<a href="/instruments/<%= instrument.id %>/edit">Edit Instrument</a>
-  <hr>
+<div class="grid">
+  <div class="grid-row grid-row-sm">
+    <div class="cell"><a href="/instruments/<%= instrument.id %>"><%= instrument.brand %></a></div>
+    <div class="cell"><%= instrument.type %></div>
+    <div class="cell">£<%= instrument.cost %></div>
+    <div class="cell"><a href="/instruments/<%= instrument.id %>/edit">Edit</a></div>
+  </div>
 <% end %>
-</div>
-

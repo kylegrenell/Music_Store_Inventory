@@ -1,33 +1,29 @@
-  <h1>Update Accessories</h1>
+  <h2>Update Accessories</h2>
 
   <form action="/accessories/<%= @accessory.id %>" method="post">
     <input type="hidden" name="_method" value="put" />
 
-    <label for="brand">Type: </label>
-      <select name="brand" value="<%= @accessory.type() %>">
-        <option value="Guitar Pedal" <%= "selected" if @accessory.brand == "Guitar Pedal" %>>Guitar Pedal</option>
-        <option value="Guitar Pick" <%= "selected" if @accessory.brand == "Guitar Pick" %>>Guitar Pick</option>
-        <option value="Drum Sticks" <%= "selected" if @accessory.brand == "Drum Sticks" %>>Drum Sticks</option>
-      </select>
-    
-    <label for="type">Brand: </label>
-    <input type="text" name="type" value="<%= @accessory.brand() %>"
+    <label for="type"><p>Type:</p></label>
+    <input name="type" value="<%= @accessory.type() %>" class="form-control"/>
+  
+    <label for="brand"><p>Brand:</p></label>
+    <input type="text" name="brand" value="<%= @accessory.brand() %>">
 
-    <label for="cost">Cost: </label>
-    <input type="number" name="cost" value="<%= @accessory.cost() %>"
+    <label for="quantity"><p>Quantity:</p></label>
+    <input type="number" name="quantity" min="0" value="<%= @accessory.quantity() %>"><br>
 
-    <label for="quantity">Quantity: </label>
-    <input type="number" name="quantity" min="1" max="50" value="<%= @accessory.quantity() %>"><br>
+    <label for="cost"><p>Cost:</p></label>
+    <input type="number" step="any" name="cost" value="<%= @accessory.cost() %>">
 
-
-    <br>
+    <label for="cost_price"><p>Cost Price:</p></label>
+    <input type="number" step="any" name="cost_price" value="<%= @accessory.cost_price() %>"><br>  
 
     <p><input type='submit' value="Update Accessories"></p>
   </form>
 
-  <form onsubmit="return confirm('Are you sure you want to delete the following accessory?')" action="/accessorys/<%= @accessory.id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <button type="submit">Delete Accessories</button>
-    </form>
-<br>
-<a href="/accessories">Back</a>
+  <form onsubmit="return confirm('Are you sure you want to delete this accessory?')" action="/accessories/<%= @accessory.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Delete Accessories</button>
+  </form>
+  <br>
+  <a href="/accessories"><h3>Back</h3></a>

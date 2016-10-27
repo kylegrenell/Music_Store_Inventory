@@ -6,7 +6,7 @@ CREATE TABLE instruments (
     id SERIAL4 PRIMARY KEY,
     type VARCHAR(255),
     brand VARCHAR(255),
-    cost INT4,
+    cost NUMERIC(10,2),
     quantity INT4,
     cost_price NUMERIC(10,2)
 );
@@ -15,15 +15,15 @@ CREATE TABLE accessories (
     id SERIAL4 PRIMARY KEY,
     type VARCHAR(255),
     brand VARCHAR(255),
-    cost INT4,
+    cost NUMERIC(10,2),
     quantity INT4,
     cost_price NUMERIC(10,2)
 );  
 
-CREATE TABLE sales (
-  id serial4 PRIMARY KEY,
-  quantity INT4,
-  instrument_id INT4 REFERENCES instruments(id)
-);
+-- CREATE TABLE sales (
+--   id serial4 PRIMARY KEY,
+--   quantity INT4,
+--   instrument_id INT4 REFERENCES instruments(id)
+-- );
 
 

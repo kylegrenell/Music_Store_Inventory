@@ -1,10 +1,8 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative ('./controllers/instrument_controller')
-require_relative ('./controllers/sales_controller')
 require_relative ('./controllers/accessories_controller')
 require_relative ('./models/instrument')
-require_relative ('./models/sale')
 require_relative ('./models/accessories')
 # require ('json')
 
@@ -28,8 +26,18 @@ get '/inventory' do
   erb(:'/inventory')
 end
 
-# get '/inventory/json' do
-#     content_type( :json )
+get '/store/cctv' do
+  erb(:'cctv')
+end
 
-#     return results.to_json
+# get '/inventory/json' do
+#   content_type(:json)
+#   instrument_stock = Instruments.all
+#   result = [ ]
+#   instrument_stock.each do |i|
+#     result << i.instruments.brand
+#     end
+#   return result.to_json
 # end
+
+

@@ -16,11 +16,4 @@ def test_stock_count()
   assert_equal(10, @stock1.quantity)
 end
 
-def test_buy
-
-end
-
-def test_sell
-
-end
 end

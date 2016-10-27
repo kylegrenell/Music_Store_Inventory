@@ -1,10 +1,17 @@
 <div id="content">
-<h2>Instrument Details</h2>
-<p>
-<%= @instrument.type %> - <%= @instrument.brand %> - £<%= @instrument.cost %> 
-<p>There are now <%= @instrument.quantity %> in stock</p>
-<p> This stock level is: <%= @instrument.instrument_quantity %></p>
+  <h2>Instrument Details</h2>
+
+  <p><%= @instrument.type %> - <%= @instrument.brand %></p> 
+
+  <p>The RETAIL PRICE is £<%= @instrument.cost %> </p>
+
+  <p>The COST PRICE is £<%= @instrument.cost_price %></p>
+
+  <p>There are now <%= @instrument.quantity %> in stock</p>
+
+  <p> This stock level is: <%= @instrument.instrument_quantity %></p>
+
 </form>
 <a href="/instruments/<%= @instrument.id %>/edit ">Edit Instrument</a>
 </div>
-
+<p><a href="/instruments"><h3>Back</h3></a></p>

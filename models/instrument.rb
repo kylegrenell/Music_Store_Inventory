@@ -10,7 +10,7 @@ class Instrument
     @id = params['id'].to_i
     @brand = params['brand']
     @type = params['type']
-    @cost = params['cost'].to_i
+    @cost = params['cost'].to_f
     @quantity = params['quantity'].to_i
     @cost_price = params['cost_price'].to_f
   end
@@ -32,16 +32,16 @@ class Instrument
   end
   
   def update(params)
-      sql = (  
-        "UPDATE instruments SET 
-          brand='#{params['brand']}',
-          type='#{params['type']}',
-          cost=#{params['cost']},
-          quantity=#{params['quantity']},
-          cost_price=#{params['cost_price']}
-          WHERE id=#{params['id']} RETURNING *;"
+    sql = (  
+      "UPDATE instruments SET 
+      brand='#{params['brand']}',
+      type='#{params['type']}',
+      cost=#{params['cost']},
+      quantity=#{params['quantity']},
+      cost_price=#{params['cost_price']}
+      WHERE id=#{params['id']} RETURNING *;"
       ) 
-      SqlRunner.run(sql)
+    SqlRunner.run(sql)
   end
 
   def self.map_items(sql)
@@ -80,7 +80,7 @@ class Instrument
   def self.total_instrument_assets()
     sql = "SELECT SUM(cost) FROM instruments;"
     result = SqlRunner.run(sql)
-    return result.first['sum'].to_i
+    return result.first['sum'].to_f
   end
 
   def self.instrument_markup()

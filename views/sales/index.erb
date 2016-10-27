@@ -1,14 +1,10 @@
-
-<div id="content">
-
 <h2>Stock</h2>
-<li><a href="/stocks/new">Add a new Instrument</a></li>
-<% @stock.each do |stock| %>
-<br><p>Instrument: <%= stock.instrument.brand %> <%= stock.instrument.type %></p>
 
-  </p>
+<a href="/stocks/new">Add a new Instrument</a>
+
+<% @sales.each do |sale| %>
+<br>
+<p>Instrument: <%= sales.instrument.brand %> <%= sales.instrument.type %></p>
+
 <a href="/stocks/<%= instrument.id %>/edit">Edit Instrument</a>
-  <hr>
 <% end %>
-
-</div>

@@ -1,36 +1,32 @@
-  <h1>Update Instrument</h1>
+<h2>Update Instrument</h2>
 
-  <form action="/instruments/<%= @instrument.id %>" method="post">
-    <input type="hidden" name="_method" value="put" />
+<form action="/instruments/<%= @instrument.id %>" method="post">
+  <input type="hidden" name="_method" value="put" />
 
-    <label for="brand">Type: </label>
-      <select name="brand" value="<%= @instrument.type() %>">
-        <option value="Guitar" <%= "selected" if @instrument.brand == "Guitar" %>>Guitar</option>
-        <option value="Bass" <%= "selected" if @instrument.brand == "Bass" %>>Bass</option>
-        <option value="Drums" <%= "selected" if @instrument.brand == "Drums" %>>Drums</option>
-      </select>
-    
-    <label for="type">Brand: </label>
-    <input type="text" name="type" value="<%= @instrument.brand() %>"
+  <label for="type"><p>Type:</p> </label>
+  <input type="text" name="type" value="<%= @instrument.type() %>">
 
-    <label for="cost">Cost: </label>
-    <input type="number" name="cost" value="<%= @instrument.cost() %>"
+  <label for="brand"><p>Brand:</p> </label>
+  <input type="text" name="brand" value="<%= @instrument.brand() %>">
 
-    <label for="quantity">Quantity: </label>
-    <input type="number" name="quantity" min="1" max="50" value="<%= @instrument.quantity() %>"><br>
+  <label for="quantity"><p>Quantity:</p> </label>
+  <input type="number" name="quantity" min="0" value="<%= @instrument.quantity() %>"><br>
 
+  <label for="cost"><p>Retail Price:</p> </label>
+  <input type="number" step="any" name="cost" value="<%= @instrument.cost() %>">
 
-    <br>
+  <label for="cost_price"><p>Cost Price:</p></label>
+  <input type="number" step="any" name="cost_price" value="<%= @instrument.cost_price() %>"><br> 
 
-    <p><input type='submit' value="Update Instrument"></p>
-  </form>
+  <p><input type='submit' value="Update Instrument"></p>
+</form>
 
-  <form onsubmit="return confirm('Are you sure you want to delete the following instrument?')" action="/instruments/<%= @instrument.id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <button type="submit">Delete Instrument</button>
-    </form>
+<form onsubmit="return confirm('Are you sure you want to delete this instrument?')" action="/instruments/<%= @instrument.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <button type="submit">Delete Instrument</button>
+</form>
 <br>
-<a href="/instruments">Back</a>
+<a href="/instruments"><h3>Back</h3></a>
 
 
 
