@@ -23,6 +23,7 @@ get '/inventory' do
   @accessory_stock_level = Accessory.accessory_stock_level
   @total_accessories_assets = Accessory.total_accessories_assets
   @accessories_markup = Accessory.accessories_markup
+  # @inventory = Inventory.new(@accessories, @instruments)
   erb(:'/inventory')
 end
 
@@ -30,14 +31,5 @@ get '/store/cctv' do
   erb(:'cctv')
 end
 
-# get '/inventory/json' do
-#   content_type(:json)
-#   instrument_stock = Instruments.all
-#   result = [ ]
-#   instrument_stock.each do |i|
-#     result << i.instruments.brand
-#     end
-#   return result.to_json
-# end
 
 

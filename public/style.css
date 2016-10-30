@@ -108,40 +108,6 @@ ul.topnav li.icon {
   }
 }
 
-
-
-/*ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 20%;
-    background-color: #f1f1f1; 
-    position: fixed;  
-    overflow: auto; 
-    float: left;
-    min-width: 130px;
-}
-
-li a {
-    display: inline-flex;
-    text-shadow: 1px #ffffff;
-    color: #000000;
-    padding: 8px 16px;
-    text-decoration: none;
-    overflow-wrap: auto;
-    font-size: 115%;
-}
-
-li a.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-li a:hover:not(.active) {
-    background-color: #555;
-    color: white;
-}*/
-
 body {
 background-color: #0f5757;
 text-align: center;

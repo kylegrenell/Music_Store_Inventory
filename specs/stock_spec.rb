@@ -1,14 +1,14 @@
 require ('minitest/autorun')
 require ('minitest/rg')
-require_relative ('../models/stock')
+require_relative ('../models/sale')
 require_relative ('../models/instrument')
-require_relative ('../inventory')
+require_relative ('../models/accessory')
 
 class TestCustomer < Minitest::Test
 
 def setup()
-  @stock1 = Stock.new({'instrument_id' => 1, 'quantity' => 10 })
-  @stock2 = Stock.new({'instrument_id' => 2, 'quantity' => 20 })
+  @stock1 = Stock.new({'instrument_id' => 1, 'accessory_id' => 10 })
+  @stock2 = Stock.new({'instrument_id' => 2, 'accessory_id' => 20 })
 
 end
 
